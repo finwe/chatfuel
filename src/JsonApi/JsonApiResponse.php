@@ -7,23 +7,24 @@ use Finwe\Chatfuel\JsonApi\Message\MessageInterface;
 class JsonApiResponse
 {
 
+	/**
+	 * @var \Finwe\Chatfuel\JsonApi\Message\MessageInterface[]
+	 */
 	private $messages;
 
 	/**
-	 * @var \Finwe\Chatfuel\JsonApi\Redirect
+	 * @var \Finwe\Chatfuel\JsonApi\Redirect|null
 	 */
 	private $redirect;
 
 	/**
-	 * @var \Finwe\Chatfuel\JsonApi\SetAttribute
+	 * @var \Finwe\Chatfuel\JsonApi\SetAttribute|null
 	 */
 	private $setAttribute;
 
 	public function __construct()
 	{
 		$this->messages = [];
-		$this->redirect;
-		$this->setAttribute;
 	}
 
 	public function addMessage(MessageInterface $message): self
@@ -49,13 +50,26 @@ class JsonApiResponse
 
 	public function getResponse(): array
 	{
-		return [
-			'messages' => array_reduce($this->messages, function ($all, MessageInterface $item) {
-				$all[] = $item->build();
-				return $all;
-			}, []),
-		] + $this->redirect->build()
-			+ $this->setAttribute->build();
+		$response = [];
+
+		if ($this->messages) {
+			$response += [
+				'messages' => array_reduce($this->messages, function ($all, MessageInterface $item) {
+					$all[] = $item->build();
+					return $all;
+				}, []),
+			];
+		}
+
+		if ($this->redirect) {
+			$response += $this->redirect->build();
+		}
+
+		if ($this->setAttribute) {
+			$response += $this->setAttribute->build();
+		}
+
+		return $response;
 	}
 
 }

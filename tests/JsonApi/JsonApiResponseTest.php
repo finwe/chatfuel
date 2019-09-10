@@ -79,4 +79,11 @@ class JsonApiResponseTest extends \PHPUnit\Framework\TestCase
 		$this->assertSame($expected, $response->getResponse());
 	}
 
+	public function testEmptyResponse()
+	{
+		$response = new JsonApiResponse();
+
+		$this->assertSame([], $response->getResponse());
+	}
+
 }
