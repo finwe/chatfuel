@@ -47,7 +47,7 @@ class JsonApiResponse
 		return $this;
 	}
 
-	public function getResponse()
+	public function getResponse(): array
 	{
 		return [
 			'messages' => array_reduce($this->messages, function ($all, MessageInterface $item) {

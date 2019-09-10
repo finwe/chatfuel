@@ -3,6 +3,7 @@
     "description": "Chatfuel JSON API PHP wrapper",
     "type": "library",
     "require": {
+        "php": "^7.2",
         "webmozart/assert": "^1.5"
     },
     "require-dev": {
