@@ -1,0 +1,22 @@
+{
+    "name": "finwe/chatfuel",
+    "description": "Chatfuel JSON API PHP wrapper",
+    "type": "library",
+    "require": {
+        "webmozart/assert": "^1.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.3",
+        "phpstan/phpstan": "^0.11.15"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matěj Humpál",
+            "email": "finwe@finwe.info"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Finwe\\Chatfuel\\": "src\\" }
+    }
+}
