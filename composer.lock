@@ -4,8 +4,66 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a0507713483ccaa71cab319b1060ba9",
+    "content-hash": "e0e4985bba7d5d68ab017a65cb8beab1",
     "packages": [
+        {
+            "name": "consistence/consistence",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/consistence/consistence.git",
+                "reference": "49786347a96696337591f14f26dabf46d1e69fd8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/consistence/consistence/zipball/49786347a96696337591f14f26dabf46d1e69fd8",
+                "reference": "49786347a96696337591f14f26dabf46d1e69fd8",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~7.2"
+            },
+            "require-dev": {
+                "consistence/coding-standard": "3.7",
+                "jakub-onderka/php-console-highlighter": "0.4",
+                "jakub-onderka/php-parallel-lint": "1.0",
+                "phing/phing": "2.16.1",
+                "phpunit/phpunit": "7.5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Consistence\\": [
+                        "src"
+                    ]
+                },
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vašek Purchart",
+                    "email": "me@vasekpurchart.cz",
+                    "homepage": "http://vasekpurchart.cz"
+                }
+            ],
+            "description": "Consistence - consistent approach and additions to PHP's functionality",
+            "keywords": [
+                "array",
+                "check",
+                "enum",
+                "format",
+                "strict",
+                "time",
+                "type"
+            ],
+            "time": "2018-12-28T16:03:19+00:00"
+        },
         {
             "name": "symfony/polyfill-ctype",
             "version": "v1.12.0",
@@ -2770,6 +2828,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.2"
+    },
     "platform-dev": []
 }

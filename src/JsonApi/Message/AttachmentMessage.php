@@ -2,7 +2,7 @@
 
 namespace Finwe\Chatfuel\JsonApi\Message;
 
-class AttachmentResponsePart implements \Finwe\Chatfuel\JsonApi\Message\MessageInterface
+class AttachmentMessage implements \Finwe\Chatfuel\JsonApi\Message\MessageInterface
 {
 
 	/**

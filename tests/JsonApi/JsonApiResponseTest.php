@@ -2,8 +2,11 @@
 
 namespace Finwe\Chatfuel\JsonApi;
 
-use Finwe\Chatfuel\JsonApi\Message\ImageAttachmentMessage;
-use Finwe\Chatfuel\JsonApi\Message\TextResponsePart;
+use Finwe\Chatfuel\JsonApi\Message\ButtonMessage;
+use Finwe\Chatfuel\JsonApi\Message\ImageMessage;
+use Finwe\Chatfuel\JsonApi\Message\TextMessage;
+use Finwe\Chatfuel\JsonApi\Template\Button;
+use Finwe\Chatfuel\JsonApi\Template\ButtonType;
 
 class JsonApiResponseTest extends \PHPUnit\Framework\TestCase
 {
@@ -18,8 +21,15 @@ class JsonApiResponseTest extends \PHPUnit\Framework\TestCase
 		$redirect = new Redirect();
 		$redirect->addBlock('Bot start');
 
-		$response->addMessage(new TextResponsePart('Ahoj'))
-			->addMessage(new ImageAttachmentMessage('http://example.com'))
+		$button = new ButtonMessage('Message', [
+			new Button(ButtonType::get(ButtonType::SHOW_BLOCK), 'Go to block', ['Bot block']),
+		]);
+
+		$button->addButton(new Button(ButtonType::get(ButtonType::WEB_URL), 'Visit Website', 'http://example.com'));
+
+		$response->addMessage(new TextMessage('Ahoj'))
+			->addMessage(new ImageMessage('http://example.com'))
+			->addMessage($button)
 			->setAttributes($attributes)
 			->setRedirect($redirect);
 
@@ -36,6 +46,27 @@ class JsonApiResponseTest extends \PHPUnit\Framework\TestCase
 						]
 					]
 				],
+				[
+					'attachment' => [
+						'type' => 'template',
+						'payload' => [
+							'template_type' => 'button',
+							'text' => 'Message',
+							'buttons' => [
+								[
+									'type' => 'show_block',
+									'title' => 'Go to block',
+									'block_names' => ['Bot block'],
+								],
+								[
+									'type' => 'web_url',
+									'title' => 'Visit Website',
+									'url' => 'http://example.com',
+								]
+							]
+						],
+					]
+				]
 			],
 			'redirect_to_blocks' => [
 				'Bot start',

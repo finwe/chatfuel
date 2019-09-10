@@ -2,12 +2,12 @@
 
 namespace Finwe\Chatfuel\JsonApi\Message;
 
-class VideoAttachmentMessage extends \Finwe\Chatfuel\JsonApi\Message\AttachmentResponsePart
+class ImageMessage extends \Finwe\Chatfuel\JsonApi\Message\AttachmentMessage
 {
 
 	public function __construct(string $url)
 	{
-		parent::__construct('video', [
+		parent::__construct('image', [
 			'url' => $url,
 		]);
 	}

@@ -2,7 +2,7 @@
 
 namespace Finwe\Chatfuel\JsonApi\Message;
 
-class AudioAttachmentMessage extends \Finwe\Chatfuel\JsonApi\Message\AttachmentResponsePart
+class AudioMessage extends \Finwe\Chatfuel\JsonApi\Message\AttachmentMessage
 {
 
 	public function __construct(string $url)
