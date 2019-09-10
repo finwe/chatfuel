@@ -56,12 +56,8 @@ class Button
 
 	private function validateSpecification(string $type, $value): void
 	{
-		if ($type === ButtonType::SHOW_BLOCK) {
-			if (is_array($value)) {
-				Assert::allString($value);
-			} else {
-				Assert::string($value);
-			}
+		if (($type === ButtonType::SHOW_BLOCK) && is_array($value)) {
+			Assert::allString($value);
 		} else {
 			Assert::string($value);
 		}
